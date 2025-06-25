@@ -365,19 +365,6 @@ flake8 modules/ tests/
 3. **Update documentation**: Add to relevant docs
 4. **Submit PR**: Include description and test results
 
-## 📖 **Citation**
-
-If you use this pipeline in your research, please cite:
-
-```bibtex
-@software{spatial_transcriptomics_pipeline,
-  author = {[Your Name]},
-  title = {Spatial Transcriptomics Analysis Pipeline},
-  url = {https://github.com/[your-username]/spatial-transcriptomics-pipeline},
-  version = {1.0.0},
-  year = {2025}
-}
-```
 
 ## 📄 **License**
 
