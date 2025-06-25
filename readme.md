@@ -1,12 +1,11 @@
 # Spatial Transcriptomics Analysis Pipeline
 
-[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A522.10.0-23aa62.svg)](https://www.nextflow.io/)
-[![Docker](https://img.shields.io/badge/docker-available-blue.svg)](https://hub.docker.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 A comprehensive, production-ready pipeline for spatial transcriptomics data analysis, particularly optimized for 10x Genomics Visium datasets. This pipeline implements best practices for quality control, preprocessing, spatial analysis, and visualization.
 
-## 🎯 **Overview**
+Inspired by the regulatory logic and spatial enhancer analysis framework presented in:
+- Regner et al. (2025). *Defining the regulatory logic of breast cancer using single-cell epigenetic and transcriptome profiling*. *Genome Research*. [PubMed](https://pubmed.ncbi.nlm.nih.gov/39914387/)
+
+## Overview
 
 This pipeline was developed as part of a bioinformatics portfolio to demonstrate:
 - **Spatial transcriptomics expertise** with real-world Visium data
@@ -15,7 +14,7 @@ This pipeline was developed as part of a bioinformatics portfolio to demonstrate
 - **Modular design** with clean Python modules and comprehensive testing
 - **Data quality assessment** including detection and correction of common issues
 
-## 🚀 **Quick Start**
+## Quick Start
 
 ### Using Docker (Recommended)
 
@@ -47,41 +46,41 @@ nextflow run workflows/main.nf \
     --outdir results
 ```
 
-## 📊 **Pipeline Features**
+## Pipeline Features
 
-### **Data Loading & Validation**
-- ✅ **Automatic data structure validation**
-- ✅ **Detection of artificial uniformity** (common in demo datasets)
-- ✅ **Spatial coordinate and image verification**
-- ✅ **Comprehensive data quality reporting**
+### Data Loading & Validation
+- Automatic data structure validation
+- Detection of artificial uniformity (common in demo datasets)
+- Spatial coordinate and image verification
+- Comprehensive data quality reporting
 
-### **Quality Control**
-- 📈 **Standard QC metrics** (UMI counts, genes detected, mitochondrial %)
-- 🔍 **Outlier detection** using robust statistical methods
-- 📊 **Interactive QC visualizations** in spatial coordinates
-- 🧬 **Gene and spot filtering** with customizable thresholds
+### Quality Control
+- Standard QC metrics (UMI counts, genes detected, mitochondrial %)
+- Outlier detection using robust statistical methods
+- Interactive QC visualizations in spatial coordinates
+- Gene and spot filtering with customizable thresholds
 
-### **Preprocessing**
-- 🔄 **Normalization** (total count, log transformation)
-- 🧬 **Highly variable gene selection** (Seurat v3, Cell Ranger methods)
-- ⚖️ **Data scaling** and centering
-- 📉 **Principal component analysis** with variance explained plots
+### Preprocessing
+- Normalization (total count, log transformation)
+- Highly variable gene selection (Seurat v3, Cell Ranger methods)
+- Data scaling and centering
+- Principal component analysis with variance explained plots
 
-### **Spatial Analysis**
-- 🗺️ **Spatial neighborhood graphs**
-- 🔍 **Clustering** (Leiden algorithm)
-- 🧬 **Marker gene identification**
-- 📍 **Spatial pattern analysis**
-- 🎯 **Multi-gene panel analysis**
+### Spatial Analysis
+- Spatial neighborhood graphs
+- Clustering (Leiden algorithm)
+- Marker gene identification
+- Spatial pattern analysis
+- Multi-gene panel analysis
 
-### **Visualization**
-- 🎨 **High-quality spatial plots** with H&E tissue background
-- 🌈 **Multi-gene expression panels**
-- 📊 **Quality control dashboards**
-- 📈 **Clustering and marker gene visualizations**
-- 💾 **Publication-ready figures** (300 DPI, vector formats)
+### Visualization
+- High-quality spatial plots with H&E tissue background
+- Multi-gene expression panels
+- Quality control dashboards
+- Clustering and marker gene visualizations
+- Publication-ready figures (300 DPI, vector formats)
 
-## 🏗️ **Architecture**
+## Architecture
 
 ```
 ├── modules/                    # Core Python modules
@@ -107,36 +106,36 @@ nextflow run workflows/main.nf \
 └── docs/                     # Documentation
 ```
 
-## 📋 **Requirements**
+## Requirements
 
-### **System Requirements**
+### System Requirements
 - **Memory**: 8+ GB RAM (16+ GB recommended)
 - **Storage**: 10+ GB free space
 - **OS**: Linux, macOS, or Windows (with WSL2)
 
-### **Software Dependencies**
+### Software Dependencies
 - **Python**: 3.11+
 - **Nextflow**: 22.10.0+
 - **Docker**: 20.10+ (optional but recommended)
 - **Java**: 11+ (for Nextflow)
 
-### **Key Python Packages**
+### Key Python Packages
 - `scanpy >= 1.10.0` - Core spatial transcriptomics analysis
 - `squidpy >= 1.3.0` - Spatial analysis extensions
 - `pandas >= 2.0.0` - Data manipulation
 - `matplotlib >= 3.7.0` - Visualization
 - `seaborn >= 0.12.0` - Statistical visualization
 
-## 🎮 **Usage Examples**
+## Usage Examples
 
-### **Basic Analysis**
+### Basic Analysis
 ```bash
 nextflow run workflows/main.nf \
     --input_dir data/visium_sample \
     --outdir results/basic_analysis
 ```
 
-### **Custom Quality Control**
+### Custom Quality Control
 ```bash
 nextflow run workflows/main.nf \
     --input_dir data/visium_sample \
@@ -146,7 +145,7 @@ nextflow run workflows/main.nf \
     --outdir results/strict_qc
 ```
 
-### **Advanced Spatial Analysis**
+### Advanced Spatial Analysis
 ```bash
 nextflow run workflows/main.nf \
     --input_dir data/visium_sample \
@@ -156,7 +155,7 @@ nextflow run workflows/main.nf \
     --outdir results/spatial_analysis
 ```
 
-### **Skip Steps for Debugging**
+### Skip Steps for Debugging
 ```bash
 nextflow run workflows/main.nf \
     --input_dir data/visium_sample \
@@ -165,7 +164,7 @@ nextflow run workflows/main.nf \
     --outdir results/qc_only
 ```
 
-## 📊 **Output Structure**
+## Output Structure
 
 ```
 results/
@@ -193,9 +192,9 @@ results/
     └── pipeline_dag.svg
 ```
 
-## 🔧 **Configuration Options**
+## Configuration Options
 
-### **Quality Control Parameters**
+### Quality Control Parameters
 ```groovy
 params {
     min_counts = 1000        // Minimum UMI counts per spot
@@ -205,7 +204,7 @@ params {
 }
 ```
 
-### **Preprocessing Parameters**
+### Preprocessing Parameters
 ```groovy
 params {
     target_sum = 10000       // Normalization target sum
@@ -215,7 +214,7 @@ params {
 }
 ```
 
-### **Spatial Analysis Parameters**
+### Spatial Analysis Parameters
 ```groovy
 params {
     resolution = 0.5         // Clustering resolution
@@ -224,92 +223,92 @@ params {
 }
 ```
 
-## 🧪 **Testing**
+## Testing
 
-### **Run Unit Tests**
+### Run Unit Tests
 ```bash
 pytest tests/ -v --cov=modules
 ```
 
-### **Test with Example Data**
+### Test with Example Data
 ```bash
 nextflow run workflows/main.nf -profile test
 ```
 
-### **Continuous Integration Test**
+### Continuous Integration Test
 ```bash
 nextflow run workflows/main.nf -profile ci
 ```
 
-## 📚 **Documentation**
+## Documentation
 
 - **[Methods Documentation](docs/METHODS.md)** - Detailed methodology
 - **[API Documentation](docs/API.md)** - Code documentation
 - **[Troubleshooting Guide](docs/TROUBLESHOOTING.md)** - Common issues
 - **[Contributing Guidelines](docs/CONTRIBUTING.md)** - Development guide
 
-## 🎯 **Key Innovations**
+## Key Innovations
 
-### **Data Quality Assessment**
+### Data Quality Assessment
 This pipeline includes sophisticated data validation that can:
-- **Detect artificial uniformity** in demo/synthetic datasets
-- **Automatically fix** unrealistic data distributions
-- **Validate spatial coordinates** and image alignment
-- **Generate comprehensive** data quality reports
+- Detect artificial uniformity in demo/synthetic datasets
+- Automatically fix unrealistic data distributions
+- Validate spatial coordinates and image alignment
+- Generate comprehensive data quality reports
 
-### **Flexible Workflow Design**
+### Flexible Workflow Design
 - **Modular architecture** - Each step can be run independently
 - **Skip functionality** - Bypass steps for debugging or custom workflows
 - **Multiple execution modes** - Local, cluster, cloud deployment
 - **Comprehensive logging** - Detailed execution tracking and error reporting
 
-### **Production-Ready Features**
+### Production-Ready Features
 - **Container support** - Docker and Singularity compatibility
 - **Resource management** - Automatic scaling and retry logic
 - **Error handling** - Robust failure recovery
 - **Reproducibility** - Version-controlled dependencies and parameters
 
-## 🔬 **Scientific Applications**
+## Scientific Applications
 
 This pipeline is designed for various spatial transcriptomics research applications:
 
-### **Cancer Research**
-- **Tumor microenvironment** analysis
-- **Cancer-stroma interactions**
-- **Immune infiltration** patterns
-- **Biomarker spatial distribution**
+### Cancer Research
+- Tumor microenvironment analysis
+- Cancer-stroma interactions
+- Immune infiltration patterns
+- Biomarker spatial distribution
 
-### **Developmental Biology**
-- **Tissue morphogenesis** studies
-- **Cell fate mapping**
-- **Spatial gene regulatory networks**
-- **Organ development** analysis
+### Developmental Biology
+- Tissue morphogenesis studies
+- Cell fate mapping
+- Spatial gene regulatory networks
+- Organ development analysis
 
-### **Neuroscience**
-- **Brain region** characterization
-- **Neuronal cell type** distribution
-- **Disease progression** mapping
-- **Drug response** analysis
+### Neuroscience
+- Brain region characterization
+- Neuronal cell type distribution
+- Disease progression mapping
+- Drug response analysis
 
-## 🎓 **Educational Value**
+## Educational Value
 
 This pipeline serves as a comprehensive example of:
-- **Modern bioinformatics** workflow development
-- **Spatial data analysis** best practices
-- **Reproducible research** methodologies
-- **Software engineering** in computational biology
+- Modern bioinformatics workflow development
+- Spatial data analysis best practices
+- Reproducible research methodologies
+- Software engineering in computational biology
 
-## 🛠️ **Troubleshooting**
+## Troubleshooting
 
-### **Common Issues**
+### Common Issues
 
-#### **Memory Errors**
+#### Memory Errors
 ```bash
 # Increase memory allocation
 nextflow run workflows/main.nf --max_memory 32.GB
 ```
 
-#### **Data Loading Failures**
+#### Data Loading Failures
 ```bash
 # Check data structure
 python -c "
@@ -319,30 +318,30 @@ print(results)
 "
 ```
 
-#### **Uniform Expression Detection**
+#### Uniform Expression Detection
 ```bash
 # Enable automatic fix
 nextflow run workflows/main.nf --fix_uniformity true
 ```
 
-#### **Missing Dependencies**
+#### Missing Dependencies
 ```bash
 # Rebuild container
 docker build --no-cache -t spatial-transcriptomics:latest docker/
 ```
 
-### **Getting Help**
+### Getting Help
 
 1. **Check the logs**: `results/pipeline_info/execution_report.html`
 2. **Validate input data**: Use the data validation module
 3. **Run with debug profile**: `nextflow run -profile debug`
 4. **Check resource usage**: Monitor memory and CPU utilization
 
-## 🤝 **Contributing**
+## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
 
-### **Development Setup**
+### Development Setup
 ```bash
 # Clone repository
 git clone https://github.com/[your-username]/spatial-transcriptomics-pipeline.git
@@ -359,41 +358,13 @@ black modules/ tests/
 flake8 modules/ tests/
 ```
 
-### **Adding New Features**
+### Adding New Features
 1. **Create feature branch**: `git checkout -b feature/new-analysis`
 2. **Add tests**: Include unit tests for new functionality
 3. **Update documentation**: Add to relevant docs
 4. **Submit PR**: Include description and test results
 
-
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 **Acknowledgments**
-
-- **Scanpy development team** for the core spatial analysis framework
-- **10x Genomics** for Visium technology and example datasets
-- **Nextflow community** for workflow management tools
-- **Open source community** for foundational tools and libraries
-
-## 📞 **Contact**
-
-- **Author**: [Your Name]
-- **Email**: [your.email@domain.com]
-- **GitHub**: [@your-username](https://github.com/your-username)
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-
-## 🔗 **Related Projects**
-
-- **[Scanpy](https://scanpy.readthedocs.io/)** - Single-cell analysis toolkit
-- **[Squidpy](https://squidpy.readthedocs.io/)** - Spatial molecular data analysis
-- **[Nextflow](https://www.nextflow.io/)** - Workflow management system
-- **[10x Genomics](https://www.10xgenomics.com/products/spatial-gene-expression)** - Visium spatial transcriptomics
-
----
-
-## 📊 **Performance Benchmarks**
+## Performance Benchmarks
 
 | Dataset Size | Processing Time | Memory Usage | Output Size |
 |-------------|----------------|-------------|-------------|
@@ -401,26 +372,41 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | Medium (5K spots) | 15-30 minutes | 4-8 GB | 500 MB - 1 GB |
 | Large (10K+ spots) | 30-60 minutes | 8-16 GB | 1-2 GB |
 
-## 🎯 **Roadmap**
+## Roadmap
 
-### **Version 1.1** (Planned)
-- [ ] **Multi-sample analysis** support
-- [ ] **Integration with scRNA-seq** reference datasets
-- [ ] **Advanced spatial statistics** (Moran's I, spatial autocorrelation)
-- [ ] **Interactive visualizations** with Plotly/Bokeh
+### Version 1.1 (Planned)
+- Multi-sample analysis support
+- Integration with scRNA-seq reference datasets
+- Advanced spatial statistics (Moran's I, spatial autocorrelation)
+- Interactive visualizations with Plotly/Bokeh
 
-### **Version 1.2** (Planned)
-- [ ] **GPU acceleration** for large datasets
-- [ ] **Cloud deployment** templates (AWS, GCP, Azure)
-- [ ] **Real-time analysis** capabilities
-- [ ] **Machine learning** integration for pattern recognition
+### Version 1.2 (Planned)
+- GPU acceleration for large datasets
+- Cloud deployment templates (AWS, GCP, Azure)
+- Real-time analysis capabilities
+- Machine learning integration for pattern recognition
 
-### **Version 2.0** (Future)
-- [ ] **Multi-modal analysis** (spatial + ATAC-seq)
-- [ ] **Temporal analysis** support
-- [ ] **3D spatial reconstruction**
-- [ ] **AI-powered** tissue annotation
+### Version 2.0 (Future)
+- Multi-modal analysis (spatial + ATAC-seq)
+- Temporal analysis support
+- 3D spatial reconstruction
+- AI-powered tissue annotation
 
----
+## License
 
-**Built with ❤️ for the spatial transcriptomics community**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Scanpy development team for the core spatial analysis framework
+- 10x Genomics for Visium technology and example datasets
+- Nextflow community for workflow management tools
+- Open source community for foundational tools and libraries
+
+
+## Related Projects
+
+- **[Scanpy](https://scanpy.readthedocs.io/)** - Single-cell analysis toolkit
+- **[Squidpy](https://squidpy.readthedocs.io/)** - Spatial molecular data analysis
+- **[Nextflow](https://www.nextflow.io/)** - Workflow management system
+- **[10x Genomics](https://www.10xgenomics.com/products/spatial-gene-expression)** - Visium spatial transcriptomics
