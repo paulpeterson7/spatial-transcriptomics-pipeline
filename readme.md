@@ -1,6 +1,6 @@
 # Spatial Transcriptomics Analysis Pipeline
 
-A comprehensive, production-ready pipeline for spatial transcriptomics data analysis, particularly optimized for 10x Genomics Visium datasets. This pipeline implements best practices for quality control, preprocessing, spatial analysis, and visualization.
+A production-ready pipeline for spatial transcriptomics data analysis, particularly optimized for 10x Genomics Visium datasets. This pipeline implements best practices for quality control, preprocessing, spatial analysis, and visualization.
 
 Inspired by the regulatory logic and spatial enhancer analysis framework presented in:
 - Regner et al. (2025). *Defining the regulatory logic of breast cancer using single-cell epigenetic and transcriptome profiling*. *Genome Research*. [PubMed](https://pubmed.ncbi.nlm.nih.gov/39914387/)
