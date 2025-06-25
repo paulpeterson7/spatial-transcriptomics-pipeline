@@ -1,0 +1,54 @@
+# Core scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Spatial transcriptomics analysis
+scanpy>=1.10.0
+squidpy>=1.3.0
+anndata>=0.10.0
+
+# Machine learning
+scikit-learn>=1.3.0
+umap-learn>=0.5.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Image processing
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+
+# Spatial analysis
+geopandas>=0.14.0
+shapely>=2.0.0
+
+# Statistical analysis
+statsmodels>=0.14.0
+pingouin>=0.5.0
+
+# Jupyter and interactive analysis
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+
+# Workflow and utilities
+tqdm>=4.65.0
+psutil>=5.9.0
+h5py>=3.9.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Documentation
+sphinx>=7.1.0
+sphinx-rtd-theme>=1.3.0
+
+# Optional: GPU support (uncomment if needed)
+# torch>=2.0.0
+# torch-geometric>=2.4.0

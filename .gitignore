@@ -1,0 +1,50 @@
+# Create .gitignore to exclude large files
+cat > .gitignore << 'EOF'
+# Data files (too large, potentially sensitive)
+data/
+*.h5ad
+*.csv
+*.xlsx
+
+# Results (generated content)
+results/
+work/
+*.png
+*.pdf
+*.jpg
+
+# Nextflow work directories
+.nextflow*
+.nextflow.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Docker
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+EOF
