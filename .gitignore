@@ -34,30 +34,28 @@ logs/
 .nextflow.log*
 work/
 
-# Results (generated content) - but allow example results
+# Results (generated content)
 results/
-!results/example_outputs/
 
-# Data files - EXCLUDE by default but INCLUDE specific example files
-data/
+# Data files - SPECIFIC EXCLUSIONS FIRST, then general exclusions
+# Allow the example data directory and its contents
+!data/
 !data/example_data/
-!data/example_data/*.h5
-!data/example_data/spatial/
-!data/example_data/spatial/*.json
-!data/example_data/spatial/*.jpg
-!data/example_data/spatial/*.png
-!data/example_data/spatial/*.csv
+!data/example_data/**
 
-# Large data files in other locations
+# Then exclude other data patterns elsewhere
 *.h5ad
 *.csv
 *.xlsx
 
-# Generated images (except in specific folders)
+# Exclude large data files but allow example data
+# (This is handled by the specific inclusions above)
+
+# Generated images (but allow specific ones)
 *.png
 *.pdf
 *.jpg
-!data/example_data/spatial/*.png
-!data/example_data/spatial/*.jpg
-!docs/images/*.png
-!docs/images/*.jpg
+!data/example_data/**/*.png
+!data/example_data/**/*.jpg
+!docs/**/*.png
+!docs/**/*.jpg
