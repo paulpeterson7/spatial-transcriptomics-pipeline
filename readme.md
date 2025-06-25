@@ -16,35 +16,68 @@ This pipeline was developed as part of a bioinformatics portfolio to demonstrate
 
 ## Quick Start
 
-### Using Docker (Recommended)
+### Method 1: Using Docker (Recommended)
 
 ```bash
 # Clone the repository
 git clone https://github.com/[your-username]/spatial-transcriptomics-pipeline.git
 cd spatial-transcriptomics-pipeline
 
-# Build Docker container
-docker build -t spatial-transcriptomics:latest docker/
+# Build and setup Docker container
+./setup_docker.sh
 
 # Run the pipeline
-docker run -v $(pwd):/workspace spatial-transcriptomics:latest \
+./run_pipeline.sh
+```
+
+**Alternative manual Docker setup:**
+```bash
+# Build Docker container manually
+docker build -t spatial-transcriptomics:latest .
+
+# Run pipeline manually
+docker run --rm -v $(pwd):/workspace -w /workspace \
+    spatial-transcriptomics:latest \
     nextflow run workflows/main.nf \
     --input_dir /workspace/data/example_data \
     --outdir /workspace/results
 ```
 
-### Using Conda/Mamba
+### Method 2: Native Execution (Inside Container)
+
+If you want to run multiple commands or debug inside the container:
+
+```bash
+# Build container first
+./setup_docker.sh
+
+# Enter container interactively
+docker run -it --rm -v $(pwd):/workspace -w /workspace spatial-transcriptomics:latest
+
+# Then run native pipeline inside container
+./run_pipeline_native.sh
+```
+
+### Method 3: Using Conda/Mamba (Local Installation)
 
 ```bash
 # Create conda environment
 conda env create -f environment.yml
 conda activate spatial-transcriptomics
 
-# Run pipeline
-nextflow run workflows/main.nf \
-    --input_dir data/example_data \
-    --outdir results
+# Install Nextflow
+curl -s https://get.nextflow.io | bash
+sudo mv nextflow /usr/local/bin/
+
+# Run pipeline natively
+./run_pipeline_native.sh
 ```
+
+## Script Overview
+
+- **`setup_docker.sh`**: Builds the Docker container and handles Dockerfile setup
+- **`run_pipeline.sh`**: Runs the complete pipeline using Docker (recommended for most users)
+- **`run_pipeline_native.sh`**: Runs pipeline directly with Nextflow (for development/debugging)
 
 ## Pipeline Features
 
